@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "author": "PrivaSense X",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 30,
+      "left": 20,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc",
+      "top": -5,
+      "left": 320,
+      "attrs": {
+        "temperature": "25",
+        "beta": "3950"
+      }
+    },
+    {
+      "type": "wokwi-gas-sensor",
+      "id": "mq2",
+      "top": 165,
+      "left": 320,
+      "attrs": {
+        "ppm": "400",
+        "threshold": "4.4"
+      }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir",
+      "top": 330,
+      "left": 320,
+      "attrs": {
+        "delayTime": "5",
+        "inhibitTime": "1.2"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "ntc:VCC",
+      "uno:5V",
+      "red",
+      []
+    ],
+    [
+      "ntc:GND",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "ntc:OUT",
+      "uno:A0",
+      "green",
+      []
+    ],
+    [
+      "mq2:VCC",
+      "uno:5V",
+      "red",
+      []
+    ],
+    [
+      "mq2:GND",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "mq2:AOUT",
+      "uno:A1",
+      "green",
+      []
+    ],
+    [
+      "pir:VCC",
+      "uno:5V",
+      "red",
+      []
+    ],
+    [
+      "pir:GND",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "pir:OUT",
+      "uno:2",
+      "blue",
+      []
+    ]
+  ],
+  "serialMonitor": {
+    "display": "auto"
+  }
+}
